@@ -4102,6 +4102,10 @@
     }
     d3_timer_flush();
   };
+  d3.timer.frame_function = function(fn) {
+    if (!arguments.length) return d3_timer_frame;
+    d3_timer_frame = fn;
+  };
   var d3_timer_frame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function(callback) {
     setTimeout(callback, 17);
   };
